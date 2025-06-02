@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# ⛽ Petrol Sensor Monitoring Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that monitors fuel usage from a petrol tank sensor in real-time, helping detect theft, optimize consumption, and track history and alerts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📈 **Live Fuel Monitoring** – View fuel level in real-time via charts.
+- 🔔 **Smart Alerts** – Get notified on potential theft, low fuel, or sudden drops.
+- 📅 **Usage History** – Track fuel consumption by time and date.
+- 👤 **User Accounts** – Sign up, sign in, and manage personal sensor data.
+- 🛠️ **Calibration Tools** – Adjust for sensor offsets and scaling errors.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🖼️ Preview
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Coming soon...
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## ⚙️ Tech Stack
+
+### Frontend
+- **React + TypeScript**
+- **Tailwind CSS**
+- **Recharts** (for data visualization)
+- **React Router**
+
+### Backend
+- **Node.js + Express**
+- **Prisma ORM**
+- **PostgreSQL**
+- **JWT Authentication**
+- **WebSockets** (for real-time updates)
+
+---
+
+## 🧱 Database Models
+
+Using Prisma ORM:
+
+- `User` – Account details
+- `SensorData` – Fuel level logs
+- `Alert` – Theft or usage notifications
+- `Calibration` – User-specific calibration settings
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the Repo
+```bash
+git clone https://github.com/ShaashwatSharma/PetroSafe.git
+cd petrol-sensor-dashboard
 ```
