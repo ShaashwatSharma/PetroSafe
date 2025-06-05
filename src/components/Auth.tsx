@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom"
-// import axios from "axios";
-
+import axios from "axios";
+import {DATABASE_URL} from "../config"
 
 
 export const Auth=({ type }:{type:"signup"| "signin"})=>{
@@ -14,9 +14,10 @@ export const Auth=({ type }:{type:"signup"| "signin"})=>{
     });
     async function sendRequest(){
         try{
-            // const response= await axios.post(`${DATABASE_URL}/api/v1/user/${type==="signup"?"signup":"signin"}`,userInputs);
-            // const token =response.data.jwt;
-            // localStorage.setItem("token",`Bearer ${token}`);
+            const response= await axios.post(`${DATABASE_URL}/api/v1/user/${type==="signup"?"signup":"signin"}`,userInputs);
+            const token =response.data.token;
+            localStorage.setItem("token",`Bearer ${token}`);
+            console.log("navigate to dashboard");
             navigate("/dashboard");
         }
         catch(e){

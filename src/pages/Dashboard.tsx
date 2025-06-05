@@ -4,6 +4,7 @@ import FuelGauge from '../components/FuelGauge';
 import FuelChart from '../components/FuelChart';
 import AlertCard from '../components/AlertCard';
 import axios from '../services/api';
+import { DATABASE_URL } from '../config';
 
 interface Alert {
   message: string;
@@ -17,10 +18,11 @@ export default function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const levelRes = await axios.get('/fuel/latest');
-        const alertRes = await axios.get('/fuel/alerts');
-        setFuelLevel(levelRes.data.level);
-        setAlerts(alertRes.data.alerts);
+        // const levelRes = await axios.get(`${DATABASE_URL}/api/1/fuel/latest`);
+        // const alertRes = await axios.get(`${DATABASE_URL}/api/1/fuel/alerts`);
+        // setFuelLevel(levelRes.data.level);
+        // setAlerts(alertRes.data.alerts);
+        console.log("line was executed 0001");
       } catch (err) {
         console.error(err);
       }

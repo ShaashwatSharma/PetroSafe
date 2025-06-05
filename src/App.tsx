@@ -5,7 +5,8 @@ import Dashboard from './pages/Dashboard';
 import History from './pages/History';
 import Alerts from './pages/Alert';
 import Sidebar from './components/Sidebar';
-import { ProtectedRoute } from './components/protectRoutes';
+import PublicRoute from './middeware/publicroute';
+import ProtectedRoute from './middeware/protectedroute';
 
 function AppWrapper() {
   const location = useLocation();
@@ -20,9 +21,21 @@ function AppWrapper() {
       {showSidebar && <Sidebar />}
       <div className="flex-1">
         <Routes>
-          <Route path="/" element={<Signin />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={
+            <PublicRoute>
+            <Signin />
+            </PublicRoute>
+            } />
+          <Route path="/signin" element={
+            <PublicRoute>
+            <Signin />
+            </PublicRoute>
+            } />
+          <Route path="/signup" element={
+            <PublicRoute>
+            <Signup />
+            </PublicRoute>
+            } />
           <Route path="/dashboard" element={
             <ProtectedRoute>
             <Dashboard />
